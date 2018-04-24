@@ -16,8 +16,8 @@ import java.util.List;
 @Service
 public class TestService {
 
-    int totalSection = 10;
-    int sectionLength = 20;
+    int totalSection = 5;
+    int sectionLength = 2000;
 
     public ExportResultDTO export(ExportParam exportParam) {
 
@@ -41,15 +41,14 @@ public class TestService {
 
             ExportDataSection exportDataSectionBegEnd = new ExportDataSection();
             exportDataSectionBegEnd.setOrder(sectionLength + 2);
-            exportDataSectionBegEnd.setDataList(getList(1, sectionLength / 2));
+            exportDataSectionBegEnd.setDataList(getList(totalSection*sectionLength+1,totalSection*sectionLength + totalSection*sectionLength / 2));
 
             data.add(exportDataSectionBegin);
             data.add(exportDataSectionBegEnd);
         } else {
             ExportDataSection exportDataSection = new ExportDataSection();
             exportDataSection.setOrder(exportParam.getOrder());
-            exportDataSection.setDataList(getList(exportParam.getOrder() * sectionLength - sectionLength / 2
-                    , exportParam.getOrder() * (sectionLength + 1) - sectionLength / 2));
+            exportDataSection.setDataList(getList(Integer.valueOf(exportParam.getKeyBegin()),Integer.valueOf(exportParam.getKeyEnd())));
 
             data.add(exportDataSection);
         }
@@ -67,6 +66,7 @@ public class TestService {
             exportDTO.setId(Long.valueOf(i));
             exportDTO.setUserId("" + i);
             exportDTO.setUserName("测试名字" + i);
+            exportDTO.setRemark("11111");
             list.add(exportDTO);
         }
 
