@@ -9,6 +9,15 @@ public class ExportQueryParam implements Serializable {
     private String keyBegin;
     private String keyEnd;
     private int order;
+    private int strategy;//0 默认策略并行，1 串行
+
+    public int getStrategy() {
+        return strategy;
+    }
+
+    public void setStrategy(int strategy) {
+        this.strategy = strategy;
+    }
 
     public String getKeyBegin() {
         return keyBegin;
