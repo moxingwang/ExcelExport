@@ -28,10 +28,6 @@ public class ExportStrategy {
         this.sort = sort.toUpperCase();
     }
 
-    private String revertSort() {
-        return "ASC".equals(sort) ? "DESC" : "ASC";
-    }
-
     public ExportResultDTO exportData(IExportInterface exportInterface) {
         List<ExportDataSection> exportDataSections = new ArrayList<>();
         List<ExportKeySection> exportKeySections = new ArrayList<>();
@@ -121,6 +117,10 @@ public class ExportStrategy {
         }
 
         return exportResultDTO;
+    }
+
+    private String revertSort() {
+        return "ASC".equals(sort) ? "DESC" : "ASC";
     }
 
 }
