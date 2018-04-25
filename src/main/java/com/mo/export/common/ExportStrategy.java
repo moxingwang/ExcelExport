@@ -93,6 +93,10 @@ public class ExportStrategy {
                     exportDataSectionTail.setOrder(2);
                 } else {
                     long sectionCount = (long) Math.ceil(dif / sectionLength);
+                    while (sectionCount > 30) {
+                        sectionLength = sectionLength * 2;
+                        sectionCount = (long) Math.ceil(dif / sectionLength);
+                    }
                     for (long i = 1; i < sectionCount - 1; i++) {
                         ExportKeySection keySection = new ExportKeySection(i * sectionLength + minId, maxId, i);
                         exportKeySections.add(keySection);
