@@ -6,9 +6,17 @@ import java.util.List;
 /**
  * @author MoXingwang on 2018/4/23.
  */
-public class ExportDataSection<T> implements Serializable {
+public class ExportDataSection<T extends ExportData> implements Serializable {
+    public ExportDataSection() {
+    }
+
+    public ExportDataSection(List<T> dataList, long order) {
+        this.dataList = dataList;
+        this.order = order;
+    }
+
     private List<T> dataList;
-    private int order;
+    private long order;
 
     public List<T> getDataList() {
         return dataList;
@@ -18,11 +26,11 @@ public class ExportDataSection<T> implements Serializable {
         this.dataList = dataList;
     }
 
-    public int getOrder() {
+    public long getOrder() {
         return order;
     }
 
-    public void setOrder(int order) {
+    public void setOrder(long order) {
         this.order = order;
     }
 }

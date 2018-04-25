@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mo.export.mapper.MyBatisTest">
+    <resultMap id="BaseResultMap" type="com.mo.export.model.ItemPayment">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="order_id" property="orderId" jdbcType="BIGINT"/>
+        <result column="order_item_id" property="orderItemId" jdbcType="BIGINT"/>
+        <result column="payment_id" property="paymentId" jdbcType="BIGINT"/>
+        <result column="payable_amount" property="payableAmount" jdbcType="DECIMAL"/>
+        <result column="promotion_amount" property="promotionAmount" jdbcType="DECIMAL"/>
+        <result column="create_date" property="createDate" jdbcType="TIMESTAMP"/>
+        <result column="delete_flag" property="deleteFlag" jdbcType="INTEGER"/>
+    </resultMap>
 
+    <sql id="Base_Column_List">
+    id, order_id, order_item_id, payment_id, payable_amount, promotion_amount, create_date,
+    delete_flag
+  </sql>
+
+    <select id="export" resultMap="BaseResultMap" parameterType="com.mo.export.common.ExportQueryDBParam">
+        select
+        <include refid="Base_Column_List"/>
+        from tx_item_payment
+        <where>
+            <if test="">
+
+            </if>
+        </where>
+    </select>
 
 </mapper>
