@@ -1,13 +1,12 @@
 package com.mo.export.model;
 
+import com.mo.export.common.ExportData;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class ItemPayment {
-    /**
-     * 主键，自增长，步长＝1
-     */
-    private Long id;
+public class ItemPayment extends ExportData {
+
 
     /**
      * 外键，关联到tx_order.id
@@ -44,21 +43,7 @@ public class ItemPayment {
      */
     private Integer deleteFlag;
 
-    /**
-     * 主键，自增长，步长＝1
-     * @return id 主键，自增长，步长＝1
-     */
-    public Long getId() {
-        return id;
-    }
 
-    /**
-     * 主键，自增长，步长＝1
-     * @param id 主键，自增长，步长＝1
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     /**
      * 外键，关联到tx_order.id

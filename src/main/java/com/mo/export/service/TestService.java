@@ -30,8 +30,8 @@ public class TestService {
         if (exportParam.getOrder() == 1 || exportParam.getOrder() == 0) {
             for (int i = 1; i <= totalSection; i++) {
                 ExportKeySection exportKeySection = new ExportKeySection();
-                exportKeySection.setKeyBegin((i * sectionLength + 1) + "");
-                exportKeySection.setKeyEnd(((i + 1) * sectionLength) + "");
+//                exportKeySection.setKeyBegin((i * sectionLength + 1) + "");
+//                exportKeySection.setKeyEnd(((i + 1) * sectionLength) + "");
                 exportKeySection.setOrder(i + 1);
                 keySections.add(exportKeySection);
             }

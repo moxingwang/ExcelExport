@@ -22,10 +22,15 @@
         <include refid="Base_Column_List"/>
         from tx_item_payment
         <where>
-            <if test="">
-
+            <if test="keyBegin != 0">
+                and id &gt;= #{keyBegin}
+            </if>
+            <if test="keyEnd != 0">
+                and id &lt; #{keyEnd}
             </if>
         </where>
+        order by create_date ${sort}
+        limit ${limit}
     </select>
 
 </mapper>

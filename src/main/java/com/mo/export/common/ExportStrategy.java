@@ -37,7 +37,7 @@ public class ExportStrategy {
         List<ExportKeySection> exportKeySections = new ArrayList<>();
         ExportResultDTO exportResultDTO = new ExportResultDTO(exportDataSections, exportKeySections);
 
-        ExportQueryDBParam exportQueryDBParam = new ExportQueryDBParam(queryParam.getKeyBegin(), queryParam.getKeyEnd(), sort, sectionLength);
+        ExportQueryDBParam exportQueryDBParam = new ExportQueryDBParam(queryParam.getKeyBegin(), queryParam.getKeyEnd(), sort, sectionLength, queryParam.getParameter());
 
         //如果是第一次导出
         if (queryParam.getOrder() <= 0) {
@@ -118,4 +118,5 @@ public class ExportStrategy {
 
         return exportResultDTO;
     }
+
 }

@@ -1,6 +1,8 @@
 package com.mo.export.controller;
 
+import com.mo.export.common.ExportQueryParam;
 import com.mo.export.common.ExportResultDTO;
+import com.mo.export.service.ExportService;
 import com.mo.export.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,10 +19,16 @@ public class TesController {
 
     @Autowired
     private TestService testService;
+    @Autowired
+    private ExportService exportService;
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ExportResultDTO test(@RequestBody ExportParam exportParam) {
+    @RequestMapping(value = "/1", method = RequestMethod.POST)
+    public ExportResultDTO test1(@RequestBody ExportTestParam exportQueryParam) {
+        return testService.export(exportQueryParam);
+    }
 
-        return testService.export(exportParam);
+    @RequestMapping(value = "/2", method = RequestMethod.POST)
+    public ExportResultDTO test2(@RequestBody ExportQueryParam exportQueryParam) {
+        return exportService.exportData(exportQueryParam);
     }
 }
