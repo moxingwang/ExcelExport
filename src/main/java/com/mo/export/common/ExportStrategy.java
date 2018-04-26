@@ -72,10 +72,8 @@ public class ExportStrategy {
             //排查书是否重复
             if ("DESC".equals(sort) && tailFirstId > headerLastId) {
                 exportDataListTail = exportDataListTail.stream().filter(p -> p.getId() <= headerLastId).collect(Collectors.toList());
-                exportDataSectionTail.setOrder(1);
             } else if ("ASC".equals(sort) && tailFirstId < headerLastId) {
                 exportDataListTail = exportDataListTail.stream().filter(p -> p.getId() >= headerLastId).collect(Collectors.toList());
-                exportDataSectionTail.setOrder(1);
             } else {
                 //计算区间
                 long maxId = tailFirstId > headerLastId ? tailFirstId : headerLastId;
@@ -93,18 +91,28 @@ public class ExportStrategy {
                         sectionLength = sectionLength * 2;
                         sectionCount = (long) Math.ceil(dif / sectionLength);
                     }
-                    for (long i = 1; i < sectionCount - 1; i++) {
-                        ExportKeySection keySection = new ExportKeySection(i * sectionLength + minId, ((i+1) * sectionLength + minId), i);
+
+
+                    if ("ASC".equals(sort)) {
+                        for (long i = 1; i < sectionCount - 1; i++) {
+                            ExportKeySection keySection = new ExportKeySection(i * sectionLength + minId, ((i + 1) * sectionLength + minId), i);
+                            exportKeySections.add(keySection);
+                        }
+
+                        ExportKeySection keySection = new ExportKeySection(sectionCount * sectionLength + minId, maxId + 1, sectionCount);
+                        exportKeySections.add(keySection);
+                    } else {
+                        for (long i = sectionLength - 1; i > 0; i--) {
+                            ExportKeySection keySection = new ExportKeySection(maxId + 1 - sectionCount * (sectionLength - i), maxId + 1 - sectionCount * (sectionLength - i - 1), sectionLength - i);
+                            exportKeySections.add(keySection);
+                        }
+
+                        ExportKeySection keySection = new ExportKeySection(minId, maxId + 1 - sectionCount * (sectionLength - 1), sectionLength);
                         exportKeySections.add(keySection);
                     }
-
-                    ExportKeySection keySection = new ExportKeySection(sectionCount * sectionLength + minId, maxId + 1, sectionCount);
-                    exportKeySections.add(keySection);
-
-                    exportDataSectionTail.setOrder(sectionCount + 1);
                 }
             }
-
+            exportDataSectionTail.setOrder(sectionLength + 1);
             exportDataSectionTail.setDataList(exportDataListTail);
             exportDataSections.add(exportDataSectionTail);
         } else {
