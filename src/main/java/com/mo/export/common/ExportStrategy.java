@@ -88,7 +88,7 @@ public class ExportStrategy {
                 } else {
                     long sectionCount = (long) Math.ceil(dif / sectionLength);
                     while (sectionCount > 30) {
-                        sectionLength = sectionLength * 2;
+                        sectionLength = sectionLength << 1;
                         sectionCount = (long) Math.ceil(dif / sectionLength);
                     }
 
