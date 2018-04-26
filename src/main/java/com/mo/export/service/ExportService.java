@@ -18,7 +18,7 @@ public class ExportService implements IExportInterface {
 
     @Override
     public ExportResultDTO exportData(ExportQueryParam queryParam) {
-        ExportStrategy exportStrategy = new ExportStrategy(queryParam, 1000, "DESC");
+        ExportStrategy exportStrategy = new ExportStrategy(queryParam, 10, "DESC");
         return exportStrategy.exportData(this);
     }
 

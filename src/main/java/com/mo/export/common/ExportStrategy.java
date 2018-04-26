@@ -94,7 +94,7 @@ public class ExportStrategy {
                         sectionCount = (long) Math.ceil(dif / sectionLength);
                     }
                     for (long i = 1; i < sectionCount - 1; i++) {
-                        ExportKeySection keySection = new ExportKeySection(i * sectionLength + minId, maxId, i);
+                        ExportKeySection keySection = new ExportKeySection(i * sectionLength + minId, ((i+1) * sectionLength + minId), i);
                         exportKeySections.add(keySection);
                     }
 
