@@ -1,7 +1,5 @@
 package com.mo.export.common;
 
-import com.mo.export.model.ItemPayment;
-
 import java.util.List;
 
 /**
