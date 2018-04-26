@@ -1,7 +1,6 @@
 package com.mo.export.controller;
 
-import com.mo.export.common.ExportQueryParam;
-import com.mo.export.common.ExportResultDTO;
+import com.mxw.export.*;
 import com.mo.export.service.ExportService;
 import com.mo.export.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;

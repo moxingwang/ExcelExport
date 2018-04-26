@@ -1,6 +1,6 @@
 package com.mo.export.model;
 
-import com.mo.export.common.ExportData;
+import com.mxw.export.ExportData;
 
 import java.math.BigDecimal;
 import java.util.Date;

@@ -17,7 +17,7 @@
     delete_flag
   </sql>
 
-    <select id="export" resultMap="BaseResultMap" parameterType="com.mo.export.common.ExportQueryDBParam">
+    <select id="export" resultMap="BaseResultMap" parameterType="com.mxw.export.ExportQueryDBParam">
         select
         <include refid="Base_Column_List"/>
         from tx_item_payment

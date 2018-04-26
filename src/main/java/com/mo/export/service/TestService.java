@@ -1,8 +1,6 @@
 package com.mo.export.service;
 
-import com.mo.export.common.ExportDataSection;
-import com.mo.export.common.ExportKeySection;
-import com.mo.export.common.ExportResultDTO;
+import com.mxw.export.*;
 import com.mo.export.controller.ExportDTO;
 import com.mo.export.controller.ExportTestParam;
 import org.springframework.stereotype.Service;

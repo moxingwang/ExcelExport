@@ -1,6 +1,6 @@
 package com.mo.export.mapper;
 
-import com.mo.export.common.ExportQueryDBParam;
+import com.mxw.export.*;
 import com.mo.export.model.ItemPayment;
 
 import java.util.List;

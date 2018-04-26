@@ -1,6 +1,6 @@
 package com.mo.export.controller;
 
-import com.mo.export.common.ExportQueryParam;
+import com.mxw.export.*;
 
 /**
  * @author MoXingwang on 2018/4/23.
