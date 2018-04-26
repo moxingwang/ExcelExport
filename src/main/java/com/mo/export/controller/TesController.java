@@ -20,6 +20,7 @@ public class TesController {
     @Autowired
     private TestService testService;
     @Autowired
+
     private ExportService exportService;
 
     @RequestMapping(value = "/1", method = RequestMethod.POST)
@@ -30,5 +31,10 @@ public class TesController {
     @RequestMapping(value = "/2", method = RequestMethod.POST)
     public ExportResultDTO test2(@RequestBody ExportQueryParam exportQueryParam) {
         return exportService.exportData(exportQueryParam);
+    }
+
+    @RequestMapping(value = "/3", method = RequestMethod.GET)
+    public String test2() {
+        return "ok";
     }
 }
